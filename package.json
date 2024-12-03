@@ -4,6 +4,8 @@
   "description": "\"namaste-react\"",
   "main": "App.js",
   "scripts": {
+     "start": "parcel index.html",
+     "build": "parcel build.html",
     "test": "jest"
   },
   "repository": {
