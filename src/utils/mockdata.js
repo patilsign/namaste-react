@@ -48,5 +48,5 @@ export const resList = {
       deliveryTime: 30,
       avgRating: 3.0,
     },
-  ],
+  ]
 };

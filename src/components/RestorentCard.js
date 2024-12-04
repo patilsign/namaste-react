@@ -1,15 +1,17 @@
-const RestorentCard = (props) => {
-     const { restName, avgRating, cuisines, img_url, deliveryTime } =
-       props.restData;
-     return (
-       <div className="res-card">
-         <img alt="res-img" src={img_url}></img>
-         <h4>{restName}</h4>
-         <h5>{avgRating}</h5>
-         <h5>{deliveryTime}</h5>
-         <h5>{cuisines.join(" ")}</h5>
-       </div>
-     );
-   };
+import { CDN_IMG_URL, IMG_URL } from "../utils/constants";
 
-   export default RestorentCard
+const RestorentCard = (props) => {
+  const { name, avgRating, cloudinaryImageId,cuisines } = props.restData;
+  const deliveryTime = props.restData.sla.deliveryTime;
+  return (
+    <div className="res-card">
+      <img alt="res-img" src={CDN_IMG_URL +cloudinaryImageId }></img>
+      <h4>{name}</h4>
+      <h5>{avgRating} stars</h5>
+      <h5>{deliveryTime} minutes</h5>
+      <h5>{cuisines.join(", ")}</h5>
+    </div>
+  );
+};
+
+export default RestorentCard;
