@@ -8,7 +8,6 @@ img {
 
 .res-card {
   width: 200px;
-  height: 300px;
   border: 1px solid black;
   margin: 5px;
 }
@@ -34,6 +33,7 @@ img {
 
  h4, h5 {
   margin: 1px;
+  padding: 2px;
 }
 .search {
      margin: 5px;

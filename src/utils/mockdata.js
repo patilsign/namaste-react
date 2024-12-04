@@ -1,4 +1,4 @@
-export const restList = {
+export const resList = {
   data: [
     {
       img_url:
@@ -6,7 +6,7 @@ export const restList = {
       restName: "KFC",
       cuisines: ["Burgers", "pizza", "chips", "finger chips"],
       deliveryTime: 30,
-      avgRating: 4.5,
+      avgRating: 3.5,
     },
     {
       img_url:
@@ -22,7 +22,7 @@ export const restList = {
       restName: "Paradice",
       cuisines: ["Burgers", "pizza", "chips", "finger chips"],
       deliveryTime: 30,
-      avgRating: 4.5,
+      avgRating: 4.2,
     },
     {
       img_url:
@@ -30,7 +30,7 @@ export const restList = {
       restName: "DOminos",
       cuisines: ["Burgers", "pizza", "chips", "finger chips"],
       deliveryTime: 30,
-      avgRating: 4.5,
+      avgRating: 3.8,
     },
     {
       img_url:
@@ -38,7 +38,7 @@ export const restList = {
       restName: "Manaco",
       cuisines: ["Burgers", "pizza", "chips", "finger chips"],
       deliveryTime: 30,
-      avgRating: 4.5,
+      avgRating: 4.0,
     },
     {
       img_url:
@@ -46,7 +46,7 @@ export const restList = {
       restName: "Pizzahut",
       cuisines: ["Burgers", "pizza", "chips", "finger chips"],
       deliveryTime: 30,
-      avgRating: 4.5,
+      avgRating: 3.0,
     },
   ],
 };
