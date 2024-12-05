@@ -6,4 +6,10 @@ export const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_l
 
 export const CDN_IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-export const API_SWIGGY = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const API_SWIGGY = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37613&lng=78.487141&collection=83639";
+
+export const API_MENU_RESTO = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37613&lng=78.487141&restaurantId=214809";
+
+export const API_MENU_TEST = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37613&lng=78.487141&restaurantId=";
+
+

@@ -1,3 +1,4 @@
+import { Link  } from "react-router";
 import RestorentCard from "./RestorentCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
@@ -62,7 +63,9 @@ export const Body = () => {
       </button>
       <div className="res-container">
         {filterRestoList.map((item, index) => (
-          <RestorentCard key={index} restData={item?.card?.card?.info} />
+          <Link key={item?.card?.card?.info?.id} to={"/restorent/" + item?.card?.card?.info?.id}>
+            <RestorentCard key={item?.card?.card?.info?.id} restData={item?.card?.card?.info} />
+          </Link>
         ))}
       </div>
     </div>

@@ -4,8 +4,8 @@
   "description": "\"namaste-react\"",
   "main": "App.js",
   "scripts": {
-     "start": "parcel index.html",
-     "build": "parcel build.html",
+    "start": "parcel index.html",
+    "build": "parcel build.html",
     "test": "jest"
   },
   "repository": {
@@ -27,7 +27,10 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.2",
+    "react-scripts": "2.1.1"
   }
 }

@@ -50,3 +50,11 @@ restList.data.map( (resto,index) => {
      resto.img_url = img_url
 });
 console.log(restList.data);
+
+<div className="menu">
+<h2 className="menu-title">{name}</h2>
+<p className="menu-items">
+  {price || defaultPrice} ", " {nextAvailableAtMessage}
+</p>
+<p className="menu-items">{ratings}</p>
+</div>
