@@ -83,3 +83,9 @@ h5 {
 .menu-items > p {
      margin-left: 20px;
 }
+
+.user-card{
+     padding: 10px;
+     border: 1px solid black;
+     background: #f0f0f0;
+}
