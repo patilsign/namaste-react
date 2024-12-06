@@ -10,7 +10,13 @@ class UserClass extends React.Component {
   }
   componentDidMount() {
     console.log(this.props.name.name + "componentDidMount() Child Called");
+    const timer = setInterval(() => {
+      console.log("Namaste React");
+    }, 2000);
+    console.log(timer);
   }
+  componentWillUnmount() {}
+
   render() {
     console.log(this.props.name.name + "render() Child Called");
     const { name, location } = this.props.name;
