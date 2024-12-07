@@ -24,7 +24,9 @@
   "homepage": "https://github.com/patilsign/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.13.2",
-    "process": "^0.11.10"
+    "postcss": "^8.4.49",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.16"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",

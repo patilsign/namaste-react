@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 
 import Header from "./src/components/Header";
@@ -22,10 +22,10 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
-/*       {
+      {
         path: "/",
         element: <Body />,
-      }, */
+      },
       {
         path: "/about",
         element: <About />,

@@ -8,30 +8,27 @@ const Header = () => {
   console.log(onlineStatus);
   const [loginBtn, setLoginBtn] = useState("Login");
   return (
-    <div className="header">
-      <div className="logo">
-        <img alt="logo" src={LOGO_URL}></img>
-      </div>
-      <div>
-        <ul className="nav-items">
-          <li>Online Status : {onlineStatus}</li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/grocery">Grocery</Link>
-          </li>
-          <li>
-            <Link to="/">Cart</Link>
-          </li>
+    <div className="flex bg-pink-100 justify-between">
+      <img className="m-1 p-1 w-36" alt="logo" src={LOGO_URL}></img>
+      <ul className="m-4 p-4 flex ">
+        <li className="m-1 p-1">Online Status : {onlineStatus}</li>
+        <li className="m-1 p-1">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="m-1 p-1">
+          <Link to="/about">About</Link>
+        </li>
+        <li className="m-1 p-1">
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li className="m-1 p-1">
+          <Link to="/grocery">Grocery</Link>
+        </li>
+        <li className="m-1 p-1">
+          <Link to="/">Cart</Link>
+        </li>
+        <li className="m-1 p-1">
           <button
-            className="btn-login"
             onClick={() => {
               loginBtn === "Login"
                 ? setLoginBtn("Logout")
@@ -40,8 +37,8 @@ const Header = () => {
           >
             {loginBtn}
           </button>
-        </ul>
-      </div>
+        </li>
+      </ul>
     </div>
   );
 };

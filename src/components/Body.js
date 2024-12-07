@@ -1,4 +1,4 @@
-import { Link  } from "react-router";
+import { Link } from "react-router";
 import RestorentCard from "./RestorentCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
@@ -16,7 +16,8 @@ export const Body = () => {
   const fetchData = async () => {
     const data = await fetch(API_URL);
     const jsonData = await data.json();
-    const cards = (jsonData?.data?.cards).slice(3);
+    console.log(jsonData, "main api data");
+    const cards = jsonData?.data?.cards.slice(3);
     setRestorentList(cards);
     setFilterRestorentList(cards);
   };
@@ -27,44 +28,54 @@ export const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="search-filter">
-        <input
-          type="text"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <button
-          className="search-btn"
-          onClick={() => {
-            const filterRestoList = listRestorents.filter((res) =>
-              res?.card?.card?.info?.name
-                .toLowerCase()
-                .includes(searchText?.toLowerCase())
-            );
-            setFilterRestorentList(filterRestoList);
-          }}
-        >
-          Search
-        </button>
+    <div className="body bg-grey-50">
+      <div className="m-4 p-4  border-black">
+        <div className="m-1 p-1">
+          <input
+            className="m-1 p-1 bg-gray-300"
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="m-1 p-1 bg-green-300 rounded-lg"
+            onClick={() => {
+              const filterRestoList = listRestorents.filter((res) =>
+                res?.card?.card?.info?.name
+                  .toLowerCase()
+                  .includes(searchText?.toLowerCase())
+              );
+              setFilterRestorentList(filterRestoList);
+            }}
+          >
+            Search
+          </button>
+
+          <button
+            className="m-1 p-1 bg-green-300 rounded-lg"
+            onClick={() => {
+              const filteredResList = listRestorents.filter(
+                (res) => res?.card?.card?.info?.avgRating >= 4
+              );
+              setFilterRestorentList(filteredResList);
+            }}
+          >
+            Top Rated Restorent
+          </button>
+        </div>
       </div>
-      <button
-        className="filter-btn"
-        onClick={() => {
-          const filteredResList = listRestorents.filter(
-            (res) => res?.card?.card?.info?.avgRating >= 4
-          );
-          setFilterRestorentList(filteredResList);
-        }}
-      >
-        Top Rated Restorent
-      </button>
-      <div className="res-container">
+      <div className="m-4 p-4 flex flex-wrap  border-black">
         {filterRestoList.map((item, index) => (
-          <Link key={item?.card?.card?.info?.id} to={"/restorent/" + item?.card?.card?.info?.id}>
-            <RestorentCard key={item?.card?.card?.info?.id} restData={item?.card?.card?.info} />
+          <Link
+            key={item?.card?.card?.info?.id}
+            to={"/restorent/" + item?.card?.card?.info?.id}
+          >
+            <RestorentCard
+              key={item?.card?.card?.info?.id}
+              restData={item?.card?.card?.info}
+            />
           </Link>
         ))}
       </div>
