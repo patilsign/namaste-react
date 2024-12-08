@@ -7,12 +7,17 @@ import Body from "./src/components/Body";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import RestorentMenu from "./src/components/RestorentMenu";
+import Cart from "./src/components/Cart";
+import { Provider } from "react-redux";
+import {appStore} from "./src/utils/store/appStore";
 
 const AppLayout = () => (
-  <div className="app">
-    <Header />
-    <Outlet />
-  </div>
+  <Provider store={appStore}>
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+  </Provider>
 );
 const Grocery = lazy(() => import("./src/components/Grocery"));
 const appRouter = createBrowserRouter([
@@ -31,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",

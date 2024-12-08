@@ -10,7 +10,11 @@ const RestorentCard = (props) => {
   } = props.restData;
   return (
     <div className="m-2 p-2 bg-gray-100 w-[185px] h-auto rounded-md hover:bg-gray-200">
-      <img className="w-52 h-40 rounded-lg" alt="res-img" src={CDN_IMG_URL + cloudinaryImageId}></img>
+      <img
+        className="w-52 h-40 rounded-lg"
+        alt="res-img"
+        src={CDN_IMG_URL + cloudinaryImageId}
+      ></img>
       <h4 className="font-bold mt-1 mb-1">{name}</h4>
       <h5 className="font-light mt-1 mb-1">{avgRating} stars</h5>
       <h5 className="font-light mt-1 mb-1">{deliveryTime} minutes</h5>
@@ -19,13 +23,15 @@ const RestorentCard = (props) => {
   );
 };
 export const withRestorentLabel = (RestorentCard) => {
-          return () => {
-                    return (
-                              <div>
-                              <label>Promoted</label>
-                              <RestorentCard/>
-                              </div>
-                    )
-          }
-}
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black rounded-md mx-4 mt-2 p-1 text-white font-bold">
+          Promoted
+        </label>
+        <RestorentCard {...props} />
+      </div>
+    );
+  };
+};
 export default RestorentCard;

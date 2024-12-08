@@ -9,10 +9,9 @@ export const Body = () => {
   const [filterRestoList, setFilterRestoList] = useState([]);
 
   const RestorentCardPromoted = withRestorentLabel(RestorentCard);
+  
   const [searchText, setSearchText] = useState();
-
   const restorentData = useRestorents();
-
   const minifiedData =
     restorentData?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
@@ -25,7 +24,6 @@ export const Body = () => {
     //return <h2>Loading...</h2>
     return <Shimmer />;
   }
-  console.log(filterRestoList, "----33333333");
   return (
     <div className="body bg-grey-50">
       <div className="m-4 p-4  border-black">
@@ -69,7 +67,11 @@ export const Body = () => {
         <div className="m-4 p-4 flex flex-wrap  border-black">
           {filterRestoList.map((item, index) => (
             <Link key={index} to={"/restorent/" + item?.info?.id}>
-              <RestorentCard key={index} restData={item?.info} />
+              {index == 5 ? (
+                <RestorentCardPromoted restData={item?.info} />
+              ) : (
+                <RestorentCard key={index} restData={item?.info} />
+              )}
             </Link>
           ))}
         </div>

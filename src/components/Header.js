@@ -3,11 +3,12 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const data = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus);
+  const cartItems = useSelector((store) => store.cart.items);
   const [loginBtn, setLoginBtn] = useState("Login");
   return (
     <div className="flex bg-pink-100 justify-between sticky">
@@ -26,8 +27,11 @@ const Header = () => {
         <li className="m-1 p-1">
           <Link to="/grocery">Grocery</Link>
         </li>
-        <li className="m-1 p-1">
-          <Link to="/">Cart</Link>
+        <li className="m-1 p-1 font-bold font-2xl">
+          <Link to="/cart">Cart</Link>
+          <span className="font-bold m-1 p-1 rounded-sm">
+            {cartItems.length}
+          </span>
         </li>
         <li className="m-1 p-1">
           <button

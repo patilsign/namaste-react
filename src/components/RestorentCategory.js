@@ -9,15 +9,14 @@ const RestorentCategory = ({ category, showItems, setShowIndex }) => {
     setShowIndex();
   };
   return (
-    <div className="w-6/12 mx-auto my-4   shadow-lg">
-      <div className="justify-between flex border-b-gray-600">
+    <div className="w-6/12 mx-auto shadow-lg"  onClick={handleClick}>
+      <div className="justify-between flex border-b-gray-600 bg-slate-200">
         <span
           className="m-1 p-4 font-bold text-md bg-gray  border-b-black"
-          onClick={handleClick}
         >
           {category?.title} ({category?.itemCards.length}) | {data.loggedInUser}
         </span>
-        <span>^</span>
+        <span className="font-bold m-4 p-4 ">^</span>
       </div>
       <div>{showItems && <ItemList item={category?.itemCards} />}</div>
     </div>
