@@ -12,4 +12,6 @@ export const API_MENU_RESTO = "https://www.swiggy.com/dapi/menu/pl?page-type=REG
 
 export const API_MENU_TEST = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.37613&lng=78.487141&restaurantId=";
 
+export const RESTORENT_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
+export const RESTAURANT_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.406498&lng=78.47724389999999&restaurantId="

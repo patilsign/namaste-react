@@ -1,32 +1,31 @@
 import { Link } from "react-router";
-import RestorentCard from "./RestorentCard";
+import RestorentCard, { withRestorentLabel } from "./RestorentCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/constants";
+import useRestorents from "../utils/useRestorents";
 
 export const Body = () => {
   const [listRestorents, setRestorentList] = useState([]);
-  const [filterRestoList, setFilterRestorentList] = useState([]);
+  const [filterRestoList, setFilterRestoList] = useState([]);
+
+  const RestorentCardPromoted = withRestorentLabel(RestorentCard);
   const [searchText, setSearchText] = useState();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const restorentData = useRestorents();
 
-  const fetchData = async () => {
-    const data = await fetch(API_URL);
-    const jsonData = await data.json();
-    console.log(jsonData, "main api data");
-    const cards = jsonData?.data?.cards.slice(3);
-    setRestorentList(cards);
-    setFilterRestorentList(cards);
-  };
+  const minifiedData =
+    restorentData?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+  useEffect(() => {
+    setRestorentList(minifiedData);
+    setFilterRestoList(minifiedData);
+  }, []);
 
   if (listRestorents.length === 0) {
     //return <h2>Loading...</h2>
     return <Shimmer />;
   }
-
+  console.log(filterRestoList, "----33333333");
   return (
     <div className="body bg-grey-50">
       <div className="m-4 p-4  border-black">
@@ -43,11 +42,11 @@ export const Body = () => {
             className="m-1 p-1 bg-green-300 rounded-lg"
             onClick={() => {
               const filterRestoList = listRestorents.filter((res) =>
-                res?.card?.card?.info?.name
+                res?.info?.name
                   .toLowerCase()
                   .includes(searchText?.toLowerCase())
               );
-              setFilterRestorentList(filterRestoList);
+              setFilterRestoList(filterRestoList);
             }}
           >
             Search
@@ -57,30 +56,25 @@ export const Body = () => {
             className="m-1 p-1 bg-green-300 rounded-lg"
             onClick={() => {
               const filteredResList = listRestorents.filter(
-                (res) => res?.card?.card?.info?.avgRating >= 4
+                (res) => res?.info?.avgRating >= 4
               );
-              setFilterRestorentList(filteredResList);
+              setFilterRestoList(filteredResList);
             }}
           >
             Top Rated Restorent
           </button>
         </div>
       </div>
-      <div className="m-4 p-4 flex flex-wrap  border-black">
-        {filterRestoList.map((item, index) => (
-          <Link
-            key={item?.card?.card?.info?.id}
-            to={"/restorent/" + item?.card?.card?.info?.id}
-          >
-            <RestorentCard
-              key={item?.card?.card?.info?.id}
-              restData={item?.card?.card?.info}
-            />
-          </Link>
-        ))}
-      </div>
+      {
+        <div className="m-4 p-4 flex flex-wrap  border-black">
+          {filterRestoList.map((item, index) => (
+            <Link key={index} to={"/restorent/" + item?.info?.id}>
+              <RestorentCard key={index} restData={item?.info} />
+            </Link>
+          ))}
+        </div>
+      }
     </div>
   );
 };
-
 export default Body;
