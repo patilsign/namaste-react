@@ -1,10 +1,11 @@
+
 import { Link } from "react-router";
 import RestorentCard, { withRestorentLabel } from "./RestorentCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import useRestorents from "../utils/useRestorents";
 
-export const Body = () => {
+const Body = () => {
   const [listRestorents, setRestorentList] = useState([]);
   const [filterRestoList, setFilterRestoList] = useState([]);
 
